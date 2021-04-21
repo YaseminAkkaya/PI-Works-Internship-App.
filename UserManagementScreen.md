@@ -1,5 +1,6 @@
 # User Management Screen
-## User Display Page (Starting Page)
+## User Display Page
+< starting page
      
 **Top Section: Add/Hide User Bar**
 * New User Button (user clicks to take them to site to add a new user)
@@ -14,6 +15,7 @@
 4. Enabled Column
 
 ## New User Page
+< linked to new user button
 
 **Save User Button**
 > the user will press this button when they want to save the new user 
