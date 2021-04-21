@@ -18,10 +18,11 @@
 **Save User Button**
 > the user will press this button when they want to save the new user 
 
+**New User Information**
 > requires user to enter the following information into the boxes 
 
 1. Username
-* should be unique
+> should be unique
 2. Display Name
 3. Phone
 4. Emai
@@ -30,7 +31,7 @@
      2. Admin
      3. SuperAdmin
 6. Enabled Button 
-* This button must be clicked to enable the user, or else the user will remain disabled
+> This button must be clicked to enable the user, or else the user will remain disabled
 
 
      
