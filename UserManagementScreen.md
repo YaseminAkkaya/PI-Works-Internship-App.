@@ -26,7 +26,7 @@
 2. Display Name
 3. Phone
 4. Emai
-5. User Roles (when this box is pressed)
+5. User Roles
      1. Guest
      2. Admin
      3. SuperAdmin
