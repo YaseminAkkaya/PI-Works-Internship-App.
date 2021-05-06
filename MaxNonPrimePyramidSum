@@ -1,0 +1,83 @@
+import java.util.*;
+
+public class MaxSum
+{
+        
+    public static void main(String[] args){
+        //Get input
+        String strInput = 
+        "1 8 4 2 6 9 8 5 9 3";
+        
+        //Put input into an array
+        String [] inputArr = strInput.split(" ");
+        
+        int rowNum = 0; //number of rows
+        
+        //Put input into a 2D arraylist
+        ArrayList<ArrayList<Integer>> pyramid = new ArrayList<ArrayList<Integer>>();
+        int index = 0; //index of element for inputArr
+        
+        for(int r = 0; index < inputArr.length; r++){
+            pyramid.add(r, new ArrayList<Integer>());
+            rowNum++;
+            for(int c = 0; c <= r; c++){
+                pyramid.get(r).add(c, Integer.parseInt(inputArr[index]));
+                index++;
+            }
+        }
+        
+        
+        //Fill in blanks with 0 to make array uniform in length and width
+        for(int i = 0; i < rowNum; i++)
+            for(int j = pyramid.get(i).size(); j < rowNum; j++){
+                pyramid.get(i).add(0);
+            }
+            
+       //Set prime numbers to 0
+       for(int i = 0; i < rowNum; i++){
+           for(int j = 0; j < rowNum; j++){
+               if(isPrime(pyramid.get(i).get(j))){
+                   pyramid.get(i).set(j, 0);
+                }
+            }
+        }
+        
+        // Function for finding maximum sum
+        for (int i = rowNum - 2; i >= 0; i--)
+        {
+            for (int j = 0; j <= i; j++)
+            {
+                // check both
+                // elements just below the number
+                // and below right to the number
+                // add the maximum of them to it. if the number is prime, add it 
+                if (pyramid.get(i + 1).get(j) > pyramid.get(i + 1).get(j + 1)){
+                        pyramid.get(i).set(j, pyramid.get(i).get(j) + pyramid.get(i + 1).get(j));
+                }
+                else{
+                        pyramid.get(i).set(j, pyramid.get(i).get(j) + pyramid.get(i + 1).get(j + 1));
+                }
+                    
+            }
+        }
+     
+        // return the top element
+        // which stores the maximum sum
+        System.out.println("The maximum sum is " + pyramid.get(0).get(0));
+    }
+     
+    private static boolean isPrime(int num){
+        if(num == 1)
+            return false;
+            
+        boolean flag = true;
+        for (int i = 2; i <= num / 2; ++i) {
+            if (num % i == 0) {
+                flag = false;
+                break;
+            }
+        }
+
+        return flag; //if true, num is prime
+    }
+}
